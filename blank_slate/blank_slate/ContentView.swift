@@ -9,44 +9,55 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
-
     var body: some View {
-        
         ZStack {
-            Color(.black).ignoresSafeArea()
-            VStack {
+            Color(.systemMint).ignoresSafeArea()
+            VStack(alignment: .leading, spacing: 20.0) {
+                Image("nf1")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .cornerRadius(15)
                 
-                Image("spidey").resizable()
-                    .cornerRadius(30)
-                    .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fit/*@END_MENU_TOKEN@*/)
-                    .padding(.all)
-                Text("hello").font(.title).foregroundColor(.white)
+                HStack {
+                    Text("Niagara Falls")
+                        .font(.title)
+                        .fontWeight(.bold)
+                    Spacer()
+                    VStack{
+                        HStack {
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.fill")
+                            Image(systemName: "star.leadinghalf.filled")
+                        }
+                        Text("361 reviews")
+                    }.foregroundColor(.orange).font(.caption)
+                }
+                Text("Come with me on a visit to the beautiful falls")
+                HStack{
+                    Spacer()
+                    Image(systemName: "fork.knife")
+                    Image(systemName: "binoculars.fill")
+                }.foregroundColor(.gray).font(.caption)
+                
             }
+            .padding()
+            .background(Rectangle()
+                .foregroundColor(.white)
+                .cornerRadius(15)
+                .shadow(radius: 15)
+            )
+            .padding()
         }
-
         
         
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
-            }
-        }
     }
 }
 
-#Preview {
-    ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        ContentView()
+    }
 }
