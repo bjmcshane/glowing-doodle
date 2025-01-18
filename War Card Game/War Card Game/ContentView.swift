@@ -20,6 +20,9 @@ struct ContentView: View {
     }
 
     var body: some View {
+        NavigationSplitView {
+            
+        }5
         VStack(alignment: .leading, spacing: 20) {
             HStack {
                 Spacer()
@@ -52,6 +55,7 @@ struct ContentView: View {
             
             Spacer()
         }
+        .padding()
         
     }
 }
