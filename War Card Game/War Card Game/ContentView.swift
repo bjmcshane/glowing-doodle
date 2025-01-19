@@ -46,7 +46,16 @@ struct ContentView: View {
             
             List {
                 ForEach (users) { user in
-                    Text(user.email)
+                    HStack {
+                        Text(user.email)
+                        Spacer()
+                        Button {
+                            updateUser()
+                        } label: {
+                            Image(systemName: "arrow.triange.2.circlepath")
+                        }
+                    }
+                    
                 }
                 .onDelete { indexes in
                     for index in indexes {
@@ -76,6 +85,11 @@ struct ContentView: View {
     
     func shareProfile() {
         print("world")
+    }
+    
+    func updateUser(_ user: User) {
+        user.name = "Jacob Mozer"
+        try? modelContext.save()
     }
 }
 
