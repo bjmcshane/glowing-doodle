@@ -10,19 +10,13 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+    // @Query private var items: [Item]
     
-    func editProfile() {
-        print("hello")
-    }
-    func shareProfile() {
-        print("world")
-    }
+    @Query private var users: [User]
+    
+    
 
     var body: some View {
-        NavigationSplitView {
-            
-        }5
         VStack(alignment: .leading, spacing: 20) {
             HStack {
                 Spacer()
@@ -45,11 +39,19 @@ struct ContentView: View {
             Text("Username")
             Text("Biography")
             HStack {
-                Button(action: editProfile){
-                    Label("Edit Profile", systemImage: "arrow.up")
+                Button("Add User"){
+                    addUser()
                 }
-                Button(action: shareProfile){
-                    Label("Share Profile", systemImage: "arrow.up")
+            }
+            
+            List {
+                ForEach (users) { user in
+                    Text(user.email)
+                }
+                .onDelete { indexes in
+                    for index in indexes {
+                        deleteUser(users[index])
+                    }
                 }
             }
             
@@ -57,6 +59,23 @@ struct ContentView: View {
         }
         .padding()
         
+    }
+    
+    func addUser() {
+        let user = User(
+            name: "Brendan",
+            email: "brendanmcshane4@gmail.com"
+        )
+        
+        modelContext.insert(user)
+    }
+    
+    func deleteUser(_ user: User) {
+        modelContext.delete(user)
+    }
+    
+    func shareProfile() {
+        print("world")
     }
 }
 
