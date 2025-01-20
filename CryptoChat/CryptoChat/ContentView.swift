@@ -8,40 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var pounds = ""
-    @State private var kilograms = ""
+    @EnvironmentObject var forumData: ForumDataManager
     
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Weight Converter")
-                .font(.largeTitle)
-                .padding()
-            
-            TextField("Enter pounds", text: $pounds)
-                //.keyboardType(.decimalPad)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-                .onChange(of: pounds) { newValue in
-                    if let poundsValue = Double(newValue) {
-                        let kgValue = poundsValue * 0.453592
-                        kilograms = String(format: "%.2f", kgValue)
-                    } else {
-                        kilograms = ""
+        NavigationView {
+            List(forumData.forums) { forum in
+                NavigationLink(destination: ForumDetailView(forum: forum)) {
+                    VStack(alignment: .leading) {
+                        Text(forum.name)
+                            .font(.headline)
+                        Text(forum.description)
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
                     }
                 }
-            
-            Text("\(kilograms.isEmpty ? "0.00" : kilograms) kg")
-                .font(.title)
-                .foregroundColor(.blue)
-            
-            Text("1 pound = 0.453592 kilograms")
-                .font(.caption)
-                .foregroundColor(.gray)
+            }
+            .navigationTitle("Forums")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    NavigationLink(destination: UserProfileView()) {
+                        Image(systemName: "person.circle")
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 
 #Preview {
     ContentView()
+        .environmentObject(ForumDataManager())
 }
