@@ -6,6 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		565CFDEB2D3EE9040018B1A1 /* AWSAuthCore in Frameworks */ = {isa = PBXBuildFile; productRef = 565CFDEA2D3EE9040018B1A1 /* AWSAuthCore */; };
+		565CFDED2D3EE9040018B1A1 /* AWSAuthUI in Frameworks */ = {isa = PBXBuildFile; productRef = 565CFDEC2D3EE9040018B1A1 /* AWSAuthUI */; };
+		565CFDEF2D3EE9040018B1A1 /* AWSCognitoIdentityProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 565CFDEE2D3EE9040018B1A1 /* AWSCognitoIdentityProvider */; };
+		565CFDF12D3EE9040018B1A1 /* AWSCognitoIdentityProviderASF in Frameworks */ = {isa = PBXBuildFile; productRef = 565CFDF02D3EE9040018B1A1 /* AWSCognitoIdentityProviderASF */; };
+		565CFDF32D3EE9040018B1A1 /* AWSCore in Frameworks */ = {isa = PBXBuildFile; productRef = 565CFDF22D3EE9040018B1A1 /* AWSCore */; };
+		565CFDF52D3EE9040018B1A1 /* AWSGoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 565CFDF42D3EE9040018B1A1 /* AWSGoogleSignIn */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		565CFDB42D3EA8970018B1A1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +61,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				565CFDED2D3EE9040018B1A1 /* AWSAuthUI in Frameworks */,
+				565CFDEB2D3EE9040018B1A1 /* AWSAuthCore in Frameworks */,
+				565CFDF12D3EE9040018B1A1 /* AWSCognitoIdentityProviderASF in Frameworks */,
+				565CFDF52D3EE9040018B1A1 /* AWSGoogleSignIn in Frameworks */,
+				565CFDEF2D3EE9040018B1A1 /* AWSCognitoIdentityProvider in Frameworks */,
+				565CFDF32D3EE9040018B1A1 /* AWSCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +127,12 @@
 			);
 			name = CryptoChat;
 			packageProductDependencies = (
+				565CFDEA2D3EE9040018B1A1 /* AWSAuthCore */,
+				565CFDEC2D3EE9040018B1A1 /* AWSAuthUI */,
+				565CFDEE2D3EE9040018B1A1 /* AWSCognitoIdentityProvider */,
+				565CFDF02D3EE9040018B1A1 /* AWSCognitoIdentityProviderASF */,
+				565CFDF22D3EE9040018B1A1 /* AWSCore */,
+				565CFDF42D3EE9040018B1A1 /* AWSGoogleSignIn */,
 			);
 			productName = CryptoChat;
 			productReference = 565CFDA02D3EA8950018B1A1 /* CryptoChat.app */;
@@ -195,6 +216,9 @@
 			);
 			mainGroup = 565CFD972D3EA8950018B1A1;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				565CFDE92D3EE9040018B1A1 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 565CFDA12D3EA8950018B1A1 /* Products */;
 			projectDirPath = "";
@@ -583,6 +607,50 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		565CFDE92D3EE9040018B1A1 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aws-amplify/aws-sdk-ios-spm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.40.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		565CFDEA2D3EE9040018B1A1 /* AWSAuthCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 565CFDE92D3EE9040018B1A1 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSAuthCore;
+		};
+		565CFDEC2D3EE9040018B1A1 /* AWSAuthUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 565CFDE92D3EE9040018B1A1 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSAuthUI;
+		};
+		565CFDEE2D3EE9040018B1A1 /* AWSCognitoIdentityProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 565CFDE92D3EE9040018B1A1 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSCognitoIdentityProvider;
+		};
+		565CFDF02D3EE9040018B1A1 /* AWSCognitoIdentityProviderASF */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 565CFDE92D3EE9040018B1A1 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSCognitoIdentityProviderASF;
+		};
+		565CFDF22D3EE9040018B1A1 /* AWSCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 565CFDE92D3EE9040018B1A1 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSCore;
+		};
+		565CFDF42D3EE9040018B1A1 /* AWSGoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 565CFDE92D3EE9040018B1A1 /* XCRemoteSwiftPackageReference "aws-sdk-ios-spm" */;
+			productName = AWSGoogleSignIn;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 565CFD982D3EA8950018B1A1 /* Project object */;
 }
