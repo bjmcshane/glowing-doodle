@@ -1,9 +1,4 @@
 # glowing-doodle
-first attempt at a swift Iphone app
-
-Certainly! Below is a **Product Requirement Document (PRD)** for the mobile application you're aiming to develop. It covers the app's purpose, features, technology stack, and user flows based on the details you've provided.
-
-```markdown
 # Product Requirements Document (PRD)
 
 ## **Product Overview**
